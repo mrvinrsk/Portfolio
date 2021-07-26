@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.min.css"/>
+    <link
+            rel="stylesheet"
+            href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+<div id="start" style="background-color: #2e75c2">
+    <div class="flex" id="start-flex">
+        <div id="start-text" class="flex-item">
+            <h1>Marvin Roßkothen</h1>
+            <span class="subtitle">
+            Meine Skills:
+            <span id="typing"></span>
+          </span>
+        </div>
+        <img src="assets/image/marvin.jpg" id="start-image"/>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="navigator">
+        <a id="home-nav" href="#start"><i class="uil uil-estate"></i></a>
+        <a id="about-nav" href="#about"><i class="uil uil-align-left-justify"></i></a>
+        <a id="skills-nav" href="#skills"><i class="uil uil-analysis"></i></a>
+        <a id="contact-nav" href="#contact"><i class="uil uil-at"></i></a>
+    </div>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" id="wave">
+    <path fill="#2e75c2" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,234.7C480,224,600,160,720,149.3C840,139,960,181,1080,181.3C1200,181,1320,139,1380,117.3L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+</svg>
+
+<section id="about">
+    <div>
+        <h3 class="header">Über mich</h3>
+        <p>
+            Ich bin Marvin Roßkothen, <span id="age"></span> Jahre alt. Ich komme
+            aus Mülheim an der Ruhr, wo ich seit Geburt an lebe. Ich habe die
+            Realschule Stadtmitte und das Berufskolleg Kluse hier in meiner
+            Heimatstadt besucht und dort den FOR-Q, sowie den
+            Informationstechnischen Assistenten erlangt. Pünktlichkeit steht für
+            mich an erster Stelle, wie meine Null unentschuldigten Fehlzeiten
+            bestätigen, da dies für mich zum Respekt einer Person gegenüber zählt.
+        </p>
+    </div>
+</section>
+
+<section id="skills">
+    <div id="skill-list">
+        <div class="progress-container">
+            <div class="progress-header">
+                <h5 class="progress-title"><i class="uil uil-html5"></i> HTML</h5>
+                <p class="progress-percentage">85%</p>
+            </div>
+            <div class="progressbar">
+                <div class="progress" style="width: 85%"></div>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-header">
+                <h5 class="progress-title"><i class="uil uil-arrow"></i> PHP</h5>
+                <p class="progress-percentage">55%</p>
+            </div>
+            <div class="progressbar">
+                <div class="progress" style="width: 55%"></div>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-header">
+                <h5 class="progress-title"><i class="uil uil-css3-simple"></i> SASS & (S)CSS</h5>
+                <p class="progress-percentage">70%</p>
+            </div>
+            <div class="progressbar">
+                <div class="progress" style="width: 70%"></div>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-header">
+                <h5 class="progress-title"><i class="uil uil-code-branch"></i> GitHub</h5>
+                <p class="progress-percentage">60%</p>
+            </div>
+            <div class="progressbar">
+                <div class="progress" style="width: 60%"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skills-text">
+        <h3 class="header">Meine Skills</h3>
+        <p>
+            Ich interessiere mich schon seit jeher für Web-Development.
+            Dementsprechend früh habe ich begonnen mich damit, in meiner Freizeit,
+            zu beschäftigen. Nach einigen Projekten, darunter beispielsweise einem
+            URL-Kürzer, einem simplen Webshop, sowie einem kleinen Spiel zum
+            schnell Tippen lernen, wurde mir klar, dass ich Webdesign gerne als
+            Beruf ausführen würde, da ich viel Spaß daran finde und mich gerne in
+            diese Richtung weiterentwickle um mein volles Potential zu erreichen.
+        </p>
+    </div>
+</section>
+
+<section id="contact">
+    <form action="send_mail.php" method="POST">
+        <h2 class="header" id="message-title">
+            Hinterlassen Sie mir eine Nachricht
+        </h2>
+
+        <div class="form-input-set">
+            <div class="form-input">
+                <input type="text" name="sendername" id="sendername"/>
+                <label for="sendername">Ihr Name</label>
+            </div>
+
+            <div class="form-input">
+                <input type="email" name="sender" id="sender"/>
+                <label for="sender">E-Mail (für Rückmeldungen)</label>
+            </div>
+        </div>
+
+        <div class="form-input">
+            <input type="text" name="topic" id="topic"/>
+            <label for="topic">Betreff</label>
+        </div>
+
+        <div class="form-input">
+            <textarea name="message" id="message"></textarea>
+            <label for="message">Ihre Nachricht</label>
+        </div>
+
+        <button type="submit" name="submitted" value="true">Senden</button>
+    </form>
+</section>
+
+<script>
+    const skillWriterPauseShort = 1250;
+    const skillWriterPause = 2500;
+    var skillWriter = new Typewriter(document.getElementById("typing"), {
+        loop: true,
+    });
+
+    skillWriter
+        .typeString("HTML")
+        .pauseFor(skillWriterPause)
+        .deleteAll()
+        .typeString("JavaScript")
+        .pauseFor(skillWriterPause)
+        .deleteAll()
+        .typeString("SASS")
+        .pauseFor(skillWriterPauseShort)
+        .deleteChars(3)
+        .typeString("CSS")
+        .pauseFor(skillWriterPause)
+        .deleteAll()
+        .typeString("PHP")
+        .pauseFor(skillWriterPause)
+
+        .start();
+
+    // Define selector for selecting
+    // anchor links with the hash
+    let anchorSelector = 'a[href^="#"]';
+
+    // Collect all such anchor links
+    let anchorList = document.querySelectorAll(anchorSelector);
+
+    // Iterate through each of the links
+    anchorList.forEach((link) => {
+        link.onclick = function (e) {
+            // Prevent scrolling if the
+            // hash value is blank
+            e.preventDefault();
+
+            // Get the destination to scroll to
+            // using the hash property
+            let destination = document.querySelector(this.hash);
+
+            // Scroll to the destination using
+            // scrollIntoView method
+            destination.scrollIntoView({
+                behavior: "smooth",
+            });
+        };
+    });
+
+    // Calc my age
+    function getAge(d1, d2) {
+        d2 = d2 || new Date();
+        var diff = d2.getTime() - d1.getTime();
+        return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    }
+
+    var birthday = new Date(2001, 5, 16);
+
+    document.getElementById("age").innerText = getAge(birthday, new Date());
+</script>
+</body>
+</html>

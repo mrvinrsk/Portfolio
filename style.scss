@@ -1,0 +1,482 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+
+/*======================= Variables =======================*/
+/* Breakpoints */
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 992px;
+$breakpoint-desktop: 1200px;
+
+/* Font */
+$fontsize-normal: 1.065rem;
+
+$fontsize-title: 3.275rem;
+$fontsize-title-mobile: 1.835rem;
+
+$fontsize-header: 1.775rem;
+
+$fontsize-subtitle: 1.325rem;
+$font-color-standard: #eee;
+$font-color-darker: rgb(200, 200, 200);
+
+/* Colors */
+$color-accent: rgb(168, 20, 124);
+$color-accent-dark: rgb(100, 20, 120);
+$color-dark: #202020;
+
+/* Progressbar */
+$progress-unfulfilled: rgb(209, 225, 250);
+$progress-fulfilled: rgb(30, 110, 205);
+
+/*======================= Base =======================*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: $fontsize-normal;
+
+  color: #eee;
+  background-color: $color-dark;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+p {
+  text-align: justify;
+}
+
+/*======================= Layout =======================*/
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-self: flex-start;
+
+  row-gap: 2rem;
+  column-gap: 10rem;
+}
+
+@media screen and (max-width: $breakpoint-laptop) {
+  .flex {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: $breakpoint-desktop) {
+  .flex {
+    column-gap: 1.75rem;
+  }
+
+  #start {
+    padding: 0;
+
+    img {
+      width: 10px;
+      height: auto;
+      aspect-ratio: 1/1;
+    }
+  }
+}
+
+/*======================= Navigator =======================*/
+$navigator-transition-duration: 0.1875s;
+$navigator-transition-delay-icon: 0.15s;
+
+.navigator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5vw;
+  margin: 0;
+  margin-top: 5vh;
+
+  transform: translateY(8vw);
+
+  font-size: $fontsize-subtitle;
+
+  z-index: 99;
+
+  a {
+    position: relative;
+    color: #eee;
+    transition-duration: 0.165s;
+    padding: 0.345rem 0.75rem;
+
+    transition-delay: 0ms;
+
+    &:hover {
+      border-radius: 0 0 10px 10px;
+      background-color: $color-dark;
+      color: $color-accent;
+
+      transition-delay: $navigator-transition-delay-icon;
+    }
+  }
+}
+
+/* Tooltips (Navbar) */
+@media screen and (min-width: $breakpoint-desktop) {
+  .navigator a:after {
+    content: "";
+    animation-name: tooltipOut;
+    animation-duration: $navigator-transition-duration;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+
+  .navigator a:hover:after {
+    content: "";
+    position: absolute;
+    transform: translate(-50%, calc(-50% - 0.925vw));
+    left: 50%;
+
+    background-color: $color-dark;
+    color: $color-accent;
+    border-radius: 10px;
+    /*box-shadow: 0 0 30px rgba(0, 0, 0, 0.175);*/
+
+    min-width: 6.75vw;
+    text-align: center;
+
+    padding: 0.425rem 1.175rem;
+
+    animation-name: tooltipIn;
+    animation-duration: 0.1875s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes tooltipIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, calc(-50% - 2vw));
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(-50%, calc(-50% - 0.925vw));
+    }
+  }
+
+  @keyframes tooltipOut {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .navigator #home-nav:hover:after {
+    content: "Home";
+  }
+
+  .navigator #about-nav:hover:after {
+    content: "Über mich";
+  }
+
+  .navigator #skills-nav:hover:after {
+    content: "Skills";
+  }
+
+  .navigator #contact-nav:hover:after {
+    content: "Kontakt";
+  }
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+  .navigator {
+    gap: 0;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: $breakpoint-desktop) {
+  .navigator {
+    transform: translateY(4.25vw);
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .navigator {
+    transform: translateY(3.25vw);
+  }
+}
+
+/*======================= Start =======================*/
+#start {
+  margin: 0;
+  padding: 7.5vh 15vw 0;
+
+  #start-text {
+    position: relative;
+    color: white;
+
+    h1 {
+      font-size: $fontsize-title;
+      color: rgb(25, 60, 90);
+      text-decoration: underline;
+    }
+
+    h1,
+    p {
+      margin: 0;
+    }
+
+    p {
+      text-align: justify;
+    }
+
+    #typing {
+      font-weight: 600;
+      color: $color-accent-dark;
+    }
+  }
+
+  img {
+    width: 350px;
+    height: auto;
+    aspect-ratio: 1/1;
+
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.325),
+      25px 25px 45px rgba(0, 0, 0, 0.175);
+  }
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+  #start {
+    h1 {
+      font-size: $fontsize-title-mobile !important;
+    }
+  }
+}
+
+section {
+  padding: 7.5vh 20vw;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (max-width: $breakpoint-desktop) {
+  section {
+    padding: 7.5vh 5vw;
+  }
+}
+
+@media screen and (max-width: $breakpoint-laptop) {
+  section {
+    padding: 3.25vh 4vw;
+  }
+}
+
+.header {
+  font-size: $fontsize-header;
+}
+
+.header::after {
+  content: "_";
+  margin-left: 5px;
+  color: $color-accent;
+}
+
+.subtitle {
+  font-size: $fontsize-subtitle;
+}
+
+p {
+  color: $font-color-darker;
+}
+
+/*======================= Section: About =======================*/
+#about {
+  display: flex;
+}
+
+/*======================= Section: Skills =======================*/
+#skills {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+  row-gap: 4vw;
+}
+
+.progress-container {
+  margin-bottom: 1.25rem;
+
+  .progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .progress-percentage {
+      color: $font-color-darker;
+    }
+  }
+
+  .progressbar {
+    position: relative;
+
+    min-width: 25vw;
+    height: 7px;
+    border-radius: 5px;
+    background-color: $progress-unfulfilled;
+
+    .progress {
+      position: relative;
+      height: inherit;
+      width: 50%;
+      border-radius: inherit;
+      background-color: $progress-fulfilled;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-laptop) {
+  #skills {
+    flex-direction: column-reverse;
+  }
+
+  #skill-list {
+    width: 100%;
+
+    .progressbar {
+      width: inherit;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-desktop) {
+  #skills-text {
+    margin-bottom: 3.5vw;
+  }
+
+  .progressbar {
+    min-width: 35vw;
+  }
+}
+
+/*======================= Section: Contact =======================*/
+form {
+  position: relative;
+
+  background-color: $font-color-darker;
+  border-radius: 25px;
+  padding: 2.5vh 5vw;
+
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.325);
+
+  transition-duration: 0s;
+
+  #message-title {
+    color: $color-dark;
+
+    margin-bottom: 2.35rem;
+  }
+
+  label {
+    text-align: left !important;
+
+    color: $color-dark;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .form-input {
+    width: 100%;
+
+    margin-bottom: 1rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: $fontsize-subtitle;
+
+    width: inherit;
+
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $color-accent;
+    border-radius: 0;
+    padding: 0.425rem 0.85rem;
+    outline: none;
+
+    transition-duration: 0.1625s;
+
+    &:focus {
+      border-bottom: 2px solid $color-accent-dark;
+    }
+  }
+
+  textarea {
+    min-height: 10vh;
+    max-height: 25vh;
+
+    resize: vertical;
+  }
+
+  button {
+    background-color: rgba(0, 0, 0, 0);
+    color: $color-accent;
+    border: 2px solid $color-accent;
+    border-radius: 5px;
+    padding: 0.5rem 1.25rem;
+    font-size: $fontsize-normal;
+    font-weight: 500;
+    cursor: pointer;
+
+    width: 100%;
+
+    transition-duration: 0.175s;
+
+    &:hover {
+      color: $font-color-standard;
+      background-color: $color-accent;
+      border: 2px solid $color-accent-dark;
+    }
+  }
+
+  .form-input-set {
+
+    form-input {
+      display: inline-block;
+
+      label {
+        display: block;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-laptop) {
+  form {
+    #message-title {
+      font-size: 1.15rem;
+    }
+  }
+}
