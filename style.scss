@@ -10,7 +10,7 @@ $breakpoint-desktop: 1200px;
 /* Font */
 $fontsize-normal: 1.065rem;
 
-$fontsize-title: 3.275rem;
+$fontsize-title: 2.945rem;
 $fontsize-title-mobile: 1.835rem;
 
 $fontsize-header: 1.775rem;
@@ -23,6 +23,9 @@ $font-color-darker: rgb(200, 200, 200);
 $color-accent: rgb(168, 20, 124);
 $color-accent-dark: rgb(100, 20, 120);
 $color-dark: #202020;
+$color-light: #d0d0d0;
+
+$background-color: $color-dark;
 
 /* Progressbar */
 $progress-unfulfilled: rgb(209, 225, 250);
@@ -33,15 +36,25 @@ $progress-fulfilled: rgb(30, 110, 205);
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-
+body.alternative {
+  $font-color-standard: #323232;
+  $background-color: $color-light;
   font-family: "Open Sans", sans-serif;
   font-size: $fontsize-normal;
 
-  color: #eee;
-  background-color: $color-dark;
+  $progress-unfulfilled: #ffdbb8;
+  $progress-fulfilled: #ff9429;
+
+  $color-accent: #d96b00;
+  $color-accent-dark: #843e00;
 }
+
+body {
+  margin: 0;
+  color: $font-color-standard;
+  background-color: $background-color;
+}
+
 
 h1,
 h2,
@@ -121,7 +134,7 @@ $navigator-transition-delay-icon: 0.15s;
 
     &:hover {
       border-radius: 0 0 10px 10px;
-      background-color: $color-dark;
+      /*background-color: $color-dark;*/
       color: $color-accent;
 
       transition-delay: $navigator-transition-delay-icon;
@@ -142,15 +155,15 @@ $navigator-transition-delay-icon: 0.15s;
   .navigator a:hover:after {
     content: "";
     position: absolute;
-    transform: translate(-50%, calc(-50% - 0.925vw));
+    transform: translate(-50%, 0);
     left: 50%;
 
     background-color: $color-dark;
     color: $color-accent;
     border-radius: 10px;
-    /*box-shadow: 0 0 30px rgba(0, 0, 0, 0.175);*/
+    box-shadow: 2px 2px 25px rgba(0, 0, 0, 0.225);
 
-    min-width: 6.75vw;
+    min-width: 10vw;
     text-align: center;
 
     padding: 0.425rem 1.175rem;
@@ -164,12 +177,12 @@ $navigator-transition-delay-icon: 0.15s;
   @keyframes tooltipIn {
     0% {
       opacity: 0;
-      transform: translate(-50%, calc(-50% - 2vw));
+      transform: translate(-50%, calc(-50% - 2.25vw));
     }
 
     100% {
       opacity: 1;
-      transform: translate(-50%, calc(-50% - 0.925vw));
+      transform: translate(-50%, calc(-50% - 1.835vw));
     }
   }
 
@@ -254,9 +267,11 @@ $navigator-transition-delay-icon: 0.15s;
     height: auto;
     aspect-ratio: 1/1;
 
-    border-radius: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.325),
-      25px 25px 45px rgba(0, 0, 0, 0.175);
+    border-radius: 10px;
+    /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.325),
+    25px 25px 45px rgba(0, 0, 0, 0.175);*/
+
+    border: 3px solid $color-dark;
   }
 }
 
@@ -342,8 +357,8 @@ p {
     position: relative;
 
     min-width: 25vw;
-    height: 7px;
-    border-radius: 5px;
+    height: 9px;
+    border-radius: 7px;
     background-color: $progress-unfulfilled;
 
     .progress {
@@ -386,7 +401,7 @@ form {
 
   background-color: $font-color-darker;
   border-radius: 25px;
-  padding: 2.5vh 5vw;
+  padding: 2.65rem 2.75rem;
 
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.325);
 
@@ -404,6 +419,8 @@ form {
     color: $color-dark;
     display: block;
     margin-top: 2px;
+
+    font-size: .85rem;
   }
 
   .form-input {
@@ -415,13 +432,14 @@ form {
   input[type="text"],
   input[type="email"],
   textarea {
-    font-size: $fontsize-subtitle;
+    font-size: $fontsize-normal;
+    font-weight: 300;
 
     width: inherit;
 
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid $color-accent;
+    border-bottom: 1.35px solid $color-accent;
     border-radius: 0;
     padding: 0.425rem 0.85rem;
     outline: none;
@@ -429,7 +447,7 @@ form {
     transition-duration: 0.1625s;
 
     &:focus {
-      border-bottom: 2px solid $color-accent-dark;
+      border-bottom: 1px solid $color-accent-dark;
     }
   }
 
@@ -449,6 +467,7 @@ form {
     font-size: $fontsize-normal;
     font-weight: 500;
     cursor: pointer;
+    margin-top: 1.25rem;
 
     width: 100%;
 

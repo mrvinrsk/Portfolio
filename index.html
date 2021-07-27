@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Document</title>
 
-    <link rel="stylesheet" href="style.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
     <link
             rel="stylesheet"
             href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
@@ -19,7 +19,7 @@
             crossorigin="anonymous"
     ></script>
 </head>
-<body>
+<body class="alternative">
 <div id="start" style="background-color: #2e75c2">
     <div class="flex" id="start-flex">
         <div id="start-text" class="flex-item">
@@ -42,7 +42,8 @@
 </div>
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" id="wave">
-    <path fill="#2e75c2" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,234.7C480,224,600,160,720,149.3C840,139,960,181,1080,181.3C1200,181,1320,139,1380,117.3L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+    <path fill="#2e75c2" fill-opacity="1"
+          d="M0,160L60,181.3C120,203,240,245,360,234.7C480,224,600,160,720,149.3C840,139,960,181,1080,181.3C1200,181,1320,139,1380,117.3L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
 </svg>
 
 <section id="about">
@@ -174,6 +175,7 @@
 
         .start();
 
+
     // Define selector for selecting
     // anchor links with the hash
     let anchorSelector = 'a[href^="#"]';
@@ -200,6 +202,11 @@
         };
     });
 
+
+    function setText(id, text) {
+        document.getElementById(id).innerText = text;
+    }
+
     // Calc my age
     function getAge(d1, d2) {
         d2 = d2 || new Date();
@@ -209,7 +216,7 @@
 
     var birthday = new Date(2001, 5, 16);
 
-    document.getElementById("age").innerText = getAge(birthday, new Date());
+    setText('age', getAge(birthday, new Date()));
 </script>
 </body>
 </html>
